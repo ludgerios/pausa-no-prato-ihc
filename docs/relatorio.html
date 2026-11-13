@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Pausa no Prato: protótipo de app de pedidos para retirada no balcão</title>
+<meta name="author" content="Breno Ludgerio">
+<meta name="description" content="Relatório do protótipo de média fidelidade Pausa no Prato para a disciplina de Interação Humano-Computador.">
+<style>
+  /* Fonte editável do relatório. Exportar com: node scripts/build-pdf.mjs */
+  @page { size: A4; margin: 2.5cm 2cm 2.2cm 3cm; }
+  html { font-family: Arial, sans-serif; font-size: 12pt; color: #000; }
+  body { margin: 0; line-height: 1.5; text-align: justify; hyphens: manual; }
+  h1, h2, h3 { font-weight: bold; text-align: left; line-height: 1.3; break-after: avoid; page-break-after: avoid; }
+  h1 { font-size: 16pt; margin: 0 0 6pt; text-align: center; }
+  h2 { font-size: 13pt; margin: 18pt 0 6pt; }
+  h3 { font-size: 12pt; margin: 12pt 0 4pt; }
+  p { margin: 0 0 8pt; text-indent: 0; }
+  ul, ol { margin: 0 0 8pt; padding-left: 1.2cm; }
+  li { margin: 0 0 3pt; }
+  a { color: #0B3D91; text-decoration: underline; }
+  .autores { text-align: center; margin: 0 0 2pt; }
+  .meta { text-align: center; margin: 0 0 14pt; }
+  .links { text-align: left; }
+  .links a { word-break: break-all; }
+  .decisao { break-inside: avoid; page-break-inside: avoid; margin: 0 0 10pt; }
+  .decisao p { margin: 0 0 2pt; }
+  .decisao ul { margin: 0; }
+  figure { margin: 10pt 0 12pt; break-inside: avoid; page-break-inside: avoid; text-align: center; }
+  figure img { display: block; margin: 0 auto 4pt; border: 0.5pt solid #777; }
+  figcaption { font-size: 12pt; line-height: 1.3; text-align: center; }
+  .par { display: flex; justify-content: space-between; gap: 0.6cm; break-inside: avoid; page-break-inside: avoid; margin: 10pt 0 12pt; }
+  .par figure { margin: 0; flex: 1 1 0; }
+  .par img { width: 100%; }
+  .fig-larga img { width: 14.5cm; }
+  .tabela { break-inside: avoid; page-break-inside: avoid; }
+  table { border-collapse: collapse; width: 100%; margin: 6pt 0 10pt; break-inside: auto; }
+  th, td { border: 0.5pt solid #555; padding: 2pt 5pt; text-align: left; vertical-align: top; line-height: 1.5; }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; page-break-inside: avoid; }
+  .quebra { break-before: page; page-break-before: always; }
+  code { font-family: Arial, sans-serif; }
+  .refs p { text-align: left; }
+</style>
+</head>
+<body>
+
+<h1>Pausa no Prato: protótipo de app de pedidos para retirada no balcão</h1>
+<p class="autores"><strong>Integrante:</strong> Breno Ludgerio</p>
+<p class="meta">Interação Humano-Computador · Protótipo de média fidelidade · Entrega em 16/11/2026</p>
+
+<p class="links"><strong>Protótipo publicado:</strong> <a href="https://pausa-no-prato-ihc.pages.dev">https://pausa-no-prato-ihc.pages.dev</a><br>
+<strong>Repositório público:</strong> <a href="https://github.com/ludgerios/pausa-no-prato-ihc">https://github.com/ludgerios/pausa-no-prato-ihc</a></p>
+
+<h2>1. Público-alvo e contexto de uso</h2>
+<p>O projeto foi recortado para <strong>estudantes universitários da Grande Vitória que usam o celular para pedir o almoço durante um intervalo curto entre aulas</strong>. É um perfil assumido para o protótipo, sem pesquisa com usuários: as necessidades abaixo são hipóteses de projeto derivadas desse contexto.</p>
+<p>O uso típico acontece em pé, no corredor ou a caminho da cantina, com uma das mãos ocupada, pouco tempo de atenção e orçamento contado. Por isso o pedido é para <strong>retirada no balcão</strong>, sem cadastro nem endereço, e o fluxo inteiro cabe em quatro telas.</p>
+<p><strong>Cenário de demonstração.</strong> Um estudante tem cerca de 20 minutos de intervalo e R$ 30 para escolher um prato e uma bebida. Ele escolhe Frango grelhado (R$ 21,90) e Suco de laranja (R$ 6,90), confere o total de R$ 28,80 e a retirada em cerca de 15 minutos, paga com Pix simulado e recebe o número do pedido.</p>
+<p><strong>Necessidades prioritárias</strong> (referidas como N1 a N5 nas decisões da seção 3):</p>
+<ol>
+  <li><strong>N1.</strong> Encontrar rapidamente uma refeição, sem percorrer um cardápio longo.</li>
+  <li><strong>N2.</strong> Comparar preços e acompanhar o total para não passar do orçamento.</li>
+  <li><strong>N3.</strong> Saber o tempo estimado de retirada antes de confirmar.</li>
+  <li><strong>N4.</strong> Corrigir o pedido (quantidades e itens) antes da confirmação, sem perder o que já escolheu.</li>
+  <li><strong>N5.</strong> Concluir com uma mão, em tela pequena, e também por teclado ou leitor de tela.</li>
+</ol>
+
+<h2>2. O protótipo de média fidelidade</h2>
+<p>O Pausa no Prato é um site estático em HTML, CSS e JavaScript, em português do Brasil, pensado primeiro para celular e adaptado a tablet e computador. Pratos, preços e tempos são fictícios. O catálogo, o carrinho e o pedido simulado ficam no próprio navegador (<code>localStorage</code>), então o carrinho sobrevive à navegação e ao recarregamento. A navegação usa endereços com <code>#</code> (por exemplo, <code>#/cardapio</code>), compatíveis com o botão Voltar e com hospedagem estática. Os valores são calculados em centavos e exibidos em reais. As quatro telas aparecem nas Figuras 1 a 4, todas com o mesmo pedido de demonstração.</p>
+<div class="par">
+  <figure>
+    <img src="capturas/1-inicio.png" alt="Tela Início do Pausa no Prato com a ação Ver cardápio">
+    <figcaption>Figura 1 – Início, com retirada no balcão, tempo estimado e «Ver cardápio».</figcaption>
+  </figure>
+  <figure>
+    <img src="capturas/2-cardapio.png" alt="Tela Cardápio com o filtro Bebidas ativo e a mensagem de item adicionado">
+    <figcaption>Figura 2 – Cardápio filtrado em Bebidas, com o aviso de item adicionado e a barra do carrinho.</figcaption>
+  </figure>
+</div>
+
+<ul>
+  <li><strong>Início</strong> (Figura 1): apresenta a cantina, a retirada no balcão, a faixa de tempo de preparo, três destaques e a ação principal «Ver cardápio». O botão «Carrinho» no topo mostra a quantidade de itens.</li>
+  <li><strong>Cardápio</strong> (Figura 2): dez itens com nome, descrição curta, preço, tempo de preparo e botão «Adicionar». Os filtros «Todos», «Pratos», «Bebidas» e «Sobremesas» funcionam e o ativo é marcado. Ao adicionar, aparece a mensagem «Suco de laranja adicionado ao carrinho. Total: R$ 28,80.», o contador muda e o usuário continua no cardápio.</li>
+  <li><strong>Finalização</strong> (Figura 3): itens, quantidades editáveis, subtotais, total, estimativa de retirada, três meios de pagamento simulados (Pix, cartão na retirada e dinheiro na retirada) e o aviso de que pedido e pagamento são simulados. Com o carrinho vazio, a tela orienta o usuário e oferece «Ver cardápio».</li>
+  <li><strong>Confirmação</strong> (Figura 4): depois de «Confirmar pedido», mostra «Pedido simulado confirmado», o número do pedido, os itens, o total, a forma de pagamento e o horário previsto de retirada. O resumo continua disponível mesmo com o carrinho já limpo, até o usuário tocar em «Fazer novo pedido».</li>
+</ul>
+
+
+<h3>Percurso para reproduzir</h3>
+<ol>
+  <li>Abra <a href="https://pausa-no-prato-ihc.pages.dev">https://pausa-no-prato-ihc.pages.dev</a> e toque em «Ver cardápio».</li>
+  <li>Filtre por «Pratos» e adicione «Frango grelhado»; filtre por «Bebidas» e adicione «Suco de laranja». A barra inferior mostra «2 itens · R$ 28,80» (Figura 2).</li>
+  <li>Recarregue a página e confira que o carrinho foi mantido. Toque em «Revisar pedido».</li>
+  <li>Na Finalização, aumente o suco para 2 (total R$ 35,70) e volte para 1 (R$ 28,80). Use «Voltar ao cardápio» e o Voltar do navegador: os itens continuam lá.</li>
+  <li>Toque em «Confirmar pedido» sem escolher pagamento e observe a mensagem junto às opções (Figura 5). Escolha «Pix» e confirme.</li>
+  <li>Compare o total da Confirmação (Figura 4) com o da Finalização (Figura 3): ambos são R$ 28,80. Toque em «Fazer novo pedido» e abra o carrinho para ver o estado vazio.</li>
+</ol>
+<p>A estimativa de retirada soma o maior tempo de preparo dos itens a 3 minutos de fila: no cenário, 12 + 3 = 15 minutos. Nas capturas, o relógio do navegador foi fixado em 12h30 para que o horário previsto (12h45) fique estável.</p>
+
+<figure class="fig-larga">
+  <img src="capturas/3-finalizacao.png" alt="Tela Finalização em duas partes: itens com controles de quantidade e resumo com total, retirada e pagamento Pix escolhido">
+  <figcaption>Figura 3 – Finalização no celular, mostrada em duas partes: itens editáveis (à esquerda) e resumo com total, retirada e pagamento (à direita).</figcaption>
+</figure>
+
+<h2>3. Decisões de usabilidade e acessibilidade</h2>
+<p>Cada decisão abaixo indica a necessidade atendida, onde foi implementada, como o professor pode observá-la e a referência usada: as heurísticas de Nielsen (H1 a H10) e os critérios da WCAG 2.2 aplicados.</p>
+
+<div class="decisao">
+<p><strong>3.1 Feedback imediato ao adicionar.</strong> Necessidades N1 e N2. No Cardápio, cada «Adicionar» mostra uma mensagem visível com o nome do item e o novo total, atualiza o contador do topo, marca o cartão com «No carrinho: 1» e exibe a barra «2 itens · R$ 28,80». A mensagem fica numa região <code>role="status"</code>, anunciada pelo leitor de tela sem tirar o foco do botão. <em>Como testar:</em> adicionar um item e ver que a tela continua no cardápio (Figura 2). <em>Referências:</em> H1 Visibilidade do estado do sistema; WCAG 4.1.3 Mensagens de status.</p>
+</div>
+<div class="decisao">
+<p><strong>3.2 Filtros com estado indicado por mais de um sinal.</strong> Necessidade N1. O filtro ativo fica escuro, ganha um ícone de visto e negrito, e a linha «Mostrando: Bebidas · 3 opções» confirma em texto. Para tecnologias assistivas, cada filtro é um botão com <code>aria-pressed</code>. <em>Como testar:</em> alternar os quatro filtros e conferir a contagem. <em>Referências:</em> H6 Reconhecer em vez de lembrar; WCAG 1.4.1 Uso de cor e 4.1.2 Nome, função e valor.</p>
+</div>
+<div class="decisao">
+<p><strong>3.3 Preço, tempo e total sempre à vista.</strong> Necessidades N2 e N3. Cada item mostra preço em destaque e tempo de preparo; a Finalização mostra subtotal por linha, total e «Retirada no balcão em cerca de 15 min» antes do pagamento, e o próprio botão repete o valor: «Confirmar pedido · R$ 28,80». <em>Referências:</em> H1; H6; H5 Prevenção de erros.</p>
+</div>
+<div class="decisao">
+<p><strong>3.4 Edição livre do pedido.</strong> Necessidade N4. Os botões de diminuir e aumentar alteram a quantidade (diminuir fica indisponível em 1 para evitar remoção acidental), «Remover» tira o item, e «Voltar ao cardápio» preserva o carrinho, inclusive após recarregar. Os controles têm nomes acessíveis completos, como «Aumentar quantidade de Suco de laranja», e cada alteração é anunciada com o novo total. <em>Como testar:</em> passos 4 e 5 do percurso (Figura 3). <em>Referências:</em> H3 Controle e liberdade do usuário; WCAG 2.5.3 Rótulo no nome e 4.1.2.</p>
+</div>
+<div class="decisao">
+<p><strong>3.5 Prevenção e correção de erros.</strong> Necessidades N3 e N4. Confirmar sem forma de pagamento mostra «Escolha uma forma de pagamento para confirmar o pedido.» dentro do grupo, com ícone, borda e fundo de erro, e o foco vai para a primeira opção (Figura 5). A mensagem é ligada ao grupo por <code>aria-describedby</code> e some ao escolher uma opção. Com o carrinho vazio não há botão de confirmar: a tela explica o motivo e oferece «Ver cardápio». A confirmação só aparece quando existe um pedido concluído. <em>Referências:</em> H5 Prevenção de erros; H9 Ajudar a reconhecer e corrigir erros; WCAG 3.3.1 Identificação do erro, 3.3.2 Rótulos ou instruções e 3.3.3 Sugestão de erro.</p>
+</div>
+<div class="decisao">
+<p><strong>3.6 Consistência de termos e ícones com texto.</strong> Necessidades N1 e N5. As mesmas ações têm sempre o mesmo nome («Adicionar», «Ver cardápio», «Revisar pedido», «Confirmar pedido», «Remover», «Fazer novo pedido»), e os ícones das ações principais vêm acompanhados de texto. Cores têm papel fixo: terracota para ação principal, verde para sucesso, vermelho para erro. <em>Referências:</em> H4 Consistência e padrões; WCAG 3.2.4 Identificação consistente.</p>
+</div>
+<div class="decisao">
+<p><strong>3.7 Fechamento claro.</strong> Necessidade N3. A Confirmação repete itens, total, pagamento e horário de retirada, mostra um número para apresentar no balcão e oferece um único próximo passo, «Fazer novo pedido», que deixa o carrinho vazio (Figura 4). <em>Referências:</em> H1; H8 Estética e design minimalista.</p>
+</div>
+<div class="decisao">
+<p><strong>3.8 Teclado, foco e estrutura.</strong> Necessidade N5. O documento usa <code>lang="pt-BR"</code>, cabeçalho, <code>main</code>, títulos hierárquicos, listas, <code>fieldset</code> com <code>legend</code> e rótulos nos campos. O primeiro Tab mostra «Pular para o conteúdo»; ao mudar de tela o foco vai para o título; a ordem de Tab segue a ordem visual; o foco tem contorno azul de 3 px. As formas de pagamento são botões de opção nativos, operados pelas setas. <em>Referências:</em> WCAG 1.3.1 Informações e relações, 2.1.1 Teclado, 2.4.1 Ignorar blocos, 2.4.3 Ordem do foco, 2.4.7 Foco visível, 3.1.1 Idioma da página.</p>
+</div>
+<div class="decisao">
+<p><strong>3.9 Leitura e toque em tela pequena.</strong> Necessidade N5. Texto base de 16 px, alvos de toque de pelo menos 44 × 44 px (meta do projeto, acima do mínimo de 24 px da WCAG 2.2) e layout em uma coluna no celular, duas ou três colunas em telas maiores, sem rolagem horizontal a partir de 320 px. <em>Referências:</em> WCAG 1.4.10 Refluxo e 2.5.8 Tamanho do alvo (mínimo).</p>
+</div>
+<div class="decisao">
+<p><strong>3.10 Contraste medido.</strong> Necessidade N5. As cores foram escolhidas e depois medidas pela fórmula de luminância relativa da WCAG (script <code>scripts/contrast.mjs</code>). Todas as 27 combinações usadas passaram; a Tabela 1 mostra as principais. <em>Referências:</em> WCAG 1.4.3 Contraste (mínimo) e 1.4.11 Contraste não textual.</p>
+</div>
+
+<div class="tabela"><table>
+  <caption style="caption-side: top; text-align: left; font-weight: bold; margin-bottom: 4pt;">Tabela 1 – Contrastes medidos (amostra das 27 combinações)</caption>
+  <thead><tr><th>Combinação</th><th class="num">Razão</th><th class="num">Mínimo</th></tr></thead>
+  <tbody>
+    <tr><td>Texto principal sobre fundo creme</td><td class="num">16,37:1</td><td class="num">4,5:1</td></tr>
+    <tr><td>Texto secundário sobre fundo creme</td><td class="num">7,13:1</td><td class="num">4,5:1</td></tr>
+    <tr><td>Texto branco no botão principal (terracota)</td><td class="num">6,83:1</td><td class="num">4,5:1</td></tr>
+    <tr><td>Aviso de item adicionado (branco sobre verde)</td><td class="num">6,49:1</td><td class="num">4,5:1</td></tr>
+    <tr><td>Selo «No carrinho» (verde sobre verde-claro)</td><td class="num">5,61:1</td><td class="num">4,5:1</td></tr>
+    <tr><td>Mensagem de erro (vermelho sobre rosa)</td><td class="num">5,72:1</td><td class="num">4,5:1</td></tr>
+    <tr><td>Limite dos controles sobre fundo creme</td><td class="num">3,70:1</td><td class="num">3:1</td></tr>
+    <tr><td>Limite dos controles no grupo com erro</td><td class="num">3,41:1</td><td class="num">3:1</td></tr>
+    <tr><td>Contorno de foco sobre fundo creme</td><td class="num">6,07:1</td><td class="num">3:1</td></tr>
+  </tbody>
+</table></div>
+
+<div class="par">
+  <figure>
+    <img src="capturas/4-confirmacao.png" alt="Tela Confirmação com Pedido simulado confirmado, itens, total de 28 reais e 80 centavos, Pix e retirada às 12h45">
+    <figcaption>Figura 4 – Confirmação do mesmo pedido: itens, total, pagamento e horário de retirada.</figcaption>
+  </figure>
+  <figure>
+    <img src="capturas/5-erro-pagamento.png" alt="Grupo de pagamento com borda vermelha e a mensagem Escolha uma forma de pagamento para confirmar o pedido">
+    <figcaption>Figura 5 – Tentativa de confirmar sem pagamento: mensagem junto às opções e foco no grupo.</figcaption>
+  </figure>
+</div>
+
+<h2>4. Verificações realizadas</h2>
+<p>O percurso foi automatizado com Playwright no Microsoft Edge sem interface (script <code>scripts/test-flow.mjs</code>) e executado no servidor local (<code>python -m http.server</code>) e na URL publicada, em sessão limpa e sem login. Nas duas execuções de 13/11/2026, <strong>as 85 verificações passaram</strong>. Elas cobrem:</p>
+<ul>
+  <li><strong>Fluxo completo:</strong> Início, Cardápio, Finalização e Confirmação, nessa ordem; os quatro filtros (4, 3, 3 e 10 itens); feedback e contador ao adicionar; aumento, redução e remoção com totais de R$ 39,20, R$ 32,30 e R$ 28,80; total da Confirmação igual ao da Finalização.</li>
+  <li><strong>Persistência e navegação:</strong> carrinho mantido ao recarregar o Cardápio e a Finalização e ao usar «Voltar ao cardápio» e o Voltar do navegador; resumo da compra mantido após recarregar; carrinho vazio após «Fazer novo pedido»; Confirmação indisponível sem pedido concluído.</li>
+  <li><strong>Prevenção de erros:</strong> confirmação sem pagamento bloqueada, mensagem visível junto às opções, foco no grupo e erro ligado por <code>aria-describedby</code>; estado vazio sem botão de confirmar.</li>
+  <li><strong>Teclado:</strong> pedido montado e confirmado só com Tab, Shift+Tab, Enter, Espaço e setas, incluindo a escolha do pagamento; contorno de foco medido em 3 px sólido.</li>
+  <li><strong>Telas:</strong> em 320, 375, 768 e 1280 px, texto base de 16 px, nenhuma rolagem horizontal e todos os botões, filtros, controles de quantidade e opções com pelo menos 44 × 44 px.</li>
+  <li><strong>Regras automáticas e recursos:</strong> axe-core sem violações dos critérios WCAG A e AA em cinco estados (Início, Cardápio, Finalização, Confirmação e carrinho vazio); nenhum erro no console; HTML, CSS, JavaScript e ícone respondendo HTTP 200.</li>
+</ul>
+<p>Também houve revisão visual no navegador embutido do ambiente de desenvolvimento, com a largura emulada de 320 px, e das capturas usadas aqui. Durante os testes foram corrigidos três problemas: o aviso de item adicionado continuava visível na tela seguinte, a dica do Pix prometia um QR Code que não existia, e o nome acessível das opções de pagamento incluía a dica inteira. <strong>Limitações:</strong> não houve teste com usuários reais nem com leitor de tela em uso (NVDA ou TalkBack); os anúncios foram verificados pelos atributos <code>role</code> e <code>aria-*</code>. Celulares foram emulados por tamanho de tela, não testados em aparelho físico. Os resultados brutos estão em <code>docs/verificacao/</code> no repositório.</p>
+
+<h2>5. Links e referências</h2>
+<div class="refs">
+<p><strong>Protótipo em produção (Cloudflare Pages):</strong> <a href="https://pausa-no-prato-ihc.pages.dev">https://pausa-no-prato-ihc.pages.dev</a></p>
+<p><strong>Repositório com código, capturas e este relatório:</strong> <a href="https://github.com/ludgerios/pausa-no-prato-ihc">https://github.com/ludgerios/pausa-no-prato-ihc</a></p>
+<p>NIELSEN, Jakob. <em>10 usability heuristics for user interface design</em>. Nielsen Norman Group, 1994, atualizado em 2024. Disponível em: <a href="https://www.nngroup.com/articles/ten-usability-heuristics/">https://www.nngroup.com/articles/ten-usability-heuristics/</a>.</p>
+<p>W3C. <em>Web Content Accessibility Guidelines (WCAG) 2.2</em>. W3C Recommendation, 2023. Disponível em: <a href="https://www.w3.org/TR/WCAG22/">https://www.w3.org/TR/WCAG22/</a>.</p>
+<p>DEQUE SYSTEMS. <em>axe-core</em>: accessibility engine for automated web UI testing. Disponível em: <a href="https://github.com/dequelabs/axe-core">https://github.com/dequelabs/axe-core</a>.</p>
+<p>MICROSOFT. <em>Playwright</em>. Disponível em: <a href="https://playwright.dev/">https://playwright.dev/</a>.</p>
+</div>
+
+</body>
+</html>

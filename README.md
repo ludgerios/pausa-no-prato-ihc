@@ -50,7 +50,7 @@ Para testar a versão publicada: `node scripts/test-flow.mjs https://pausa-no-pr
 
 ```
 public/            site estático publicado (index.html, styles.css, app.js, favicon.svg)
-docs/              relatório (HTML com estilo de impressão e PDF), capturas e resultados das verificações
+docs/              relatório (relatorio.html e PDF), capturas/ e verificacao/ (resultados dos testes e do contraste)
 scripts/           testes, capturas, contraste, geração do PDF e deploy
 ```
 
@@ -58,7 +58,13 @@ Navegação por hash (`#/inicio`, `#/cardapio`, `#/finalizacao`, `#/confirmacao`
 
 ## Publicação
 
-Cloudflare Pages, projeto `pausa-no-prato-ihc`, produção a partir da branch `main`, diretório de saída `public`, sem comando de build.
+Cloudflare Pages, projeto `pausa-no-prato-ihc`, ambiente de produção na branch `main`, publicado por Direct Upload somente da pasta `public/` (sem comando de build):
+
+```bash
+npm run deploy
+```
+
+O relatório é gerado a partir de `docs/relatorio.html` (fonte editável com estilo de impressão) com `npm run pdf`, usando a Arial instalada no sistema. Nenhum arquivo de fonte fica no repositório.
 
 ## Créditos
 

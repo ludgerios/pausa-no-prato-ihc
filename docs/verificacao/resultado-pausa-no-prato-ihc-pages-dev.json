@@ -1,0 +1,433 @@
+{
+  "base": "https://pausa-no-prato-ihc.pages.dev",
+  "date": "2026-11-13T18:36:01.736Z",
+  "total": 85,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Início carrega com título «Almoço rápido entre aulas»",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Início mostra retirada no balcão e tempo estimado",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Início mostra destaques",
+      "ok": true,
+      "detail": "3 destaques"
+    },
+    {
+      "name": "Contador do carrinho começa em 0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "lang=\"pt-BR\" no documento",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "axe-core sem violações WCAG A/AA em Início",
+      "ok": true,
+      "detail": "0 violações"
+    },
+    {
+      "name": "«Ver cardápio» abre a tela Cardápio",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Foco vai para o título ao mudar de tela",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Filtro «Pratos» mostra 4 itens e fica marcado",
+      "ok": true,
+      "detail": "4 itens, aria-pressed=true, «Mostrando: Pratos · 4 opções»"
+    },
+    {
+      "name": "Filtro «Bebidas» mostra 3 itens e fica marcado",
+      "ok": true,
+      "detail": "3 itens, aria-pressed=true, «Mostrando: Bebidas · 3 opções»"
+    },
+    {
+      "name": "Filtro «Sobremesas» mostra 3 itens e fica marcado",
+      "ok": true,
+      "detail": "3 itens, aria-pressed=true, «Mostrando: Sobremesas · 3 opções»"
+    },
+    {
+      "name": "Filtro «Todos» mostra 10 itens e fica marcado",
+      "ok": true,
+      "detail": "10 itens, aria-pressed=true, «Mostrando: Todos · 10 opções»"
+    },
+    {
+      "name": "Filtro ativo tem sinal além da cor (ícone de seleção)",
+      "ok": true,
+      "detail": "{\"bg\":\"rgb(31, 26, 23)\",\"icon\":\"flex\"}"
+    },
+    {
+      "name": "axe-core sem violações WCAG A/AA em Cardápio",
+      "ok": true,
+      "detail": "0 violações"
+    },
+    {
+      "name": "Feedback «Frango grelhado adicionado ao carrinho» aparece",
+      "ok": true,
+      "detail": "Frango grelhado adicionado ao carrinho. Total: R$ 21,90."
+    },
+    {
+      "name": "Feedback está em região de status (role=status)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Contador atualiza para 1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Usuário continua no Cardápio após adicionar",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Foco permanece no botão «Adicionar»",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Contador mostra 3 itens",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Barra do carrinho mostra 3 itens e R$ 32,30",
+      "ok": true,
+      "detail": "3 itens · R$ 32,30 Revisar pedido"
+    },
+    {
+      "name": "Recarregar o Cardápio preserva o carrinho",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Finalização lista 3 linhas",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Finalização informa que pedido e pagamento são simulados",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Finalização mostra estimativa de retirada",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "axe-core sem violações WCAG A/AA em Finalização",
+      "ok": true,
+      "detail": "0 violações"
+    },
+    {
+      "name": "Aumentar quantidade do suco para 2 atualiza o total para R$ 39,20",
+      "ok": true,
+      "detail": "R$ 39,20"
+    },
+    {
+      "name": "Diminuir volta o total para R$ 32,30",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Botão «Diminuir» fica indisponível na quantidade 1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Remover água deixa 2 linhas e total R$ 28,80",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Remoção é anunciada na região de status",
+      "ok": true,
+      "detail": "Água mineral removido do pedido. Total: R$ 28,80."
+    },
+    {
+      "name": "Voltar ao cardápio preserva 2 itens",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Botão Voltar do navegador retorna à Finalização",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Recarregar a Finalização preserva os itens",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Confirmar sem pagamento mostra a mensagem junto às opções",
+      "ok": true,
+      "detail": "Escolha uma forma de pagamento para confirmar o pedido."
+    },
+    {
+      "name": "Foco vai para o grupo de pagamento",
+      "ok": true,
+      "detail": "{\"tag\":\"INPUT\",\"id\":\"\",\"label\":\"\",\"name\":\"pagamento\",\"value\":\"pix\"}"
+    },
+    {
+      "name": "Pedido não é confirmado sem pagamento",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Grupo de pagamento descreve o erro por aria-describedby",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Escolher Pix esconde a mensagem de erro",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Confirmação mostra «Pedido simulado confirmado»",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Confirmação lista itens, pagamento e retirada",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Total da confirmação igual ao da finalização (R$ 28,80)",
+      "ok": true,
+      "detail": "R$ 28,80 → R$ 28,80"
+    },
+    {
+      "name": "Carrinho é limpo após confirmar",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "axe-core sem violações WCAG A/AA em Confirmação",
+      "ok": true,
+      "detail": "0 violações"
+    },
+    {
+      "name": "Resumo da compra continua visível após recarregar",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "«Fazer novo pedido» volta ao Início com carrinho vazio",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Confirmação não aparece sem pedido concluído",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Carrinho vazio mostra orientação e caminho para o cardápio",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Carrinho vazio não oferece «Confirmar pedido»",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "axe-core sem violações WCAG A/AA em Finalização com carrinho vazio",
+      "ok": true,
+      "detail": "0 violações"
+    },
+    {
+      "name": "Primeiro Tab mostra «Pular para o conteúdo»",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Foco tem contorno visível",
+      "ok": true,
+      "detail": "solid 3px rgb(11, 87, 208)"
+    },
+    {
+      "name": "Tab alcança «Ver cardápio»",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Enter em «Ver cardápio» abre o Cardápio com foco no título",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Tab alcança o filtro «Bebidas»",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Enter ativa o filtro e mantém o foco nele",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Tab alcança «Adicionar Suco de laranja»",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Enter adiciona o suco (contador 1)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Shift+Tab volta para os filtros",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Tab alcança «Adicionar Frango grelhado»",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Espaço adiciona o frango (contador 2)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Tab alcança a barra «Revisar pedido»",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Tab alcança a primeira opção de pagamento",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Seta para baixo seleciona «Cartão na retirada»",
+      "ok": true,
+      "detail": "{\"tag\":\"INPUT\",\"id\":\"\",\"label\":\"\",\"name\":\"pagamento\",\"value\":\"cartao\"}"
+    },
+    {
+      "name": "Opção escolhida tem destaque e ícone de seleção",
+      "ok": true,
+      "detail": "rgb(158, 58, 26) / ícone flex"
+    },
+    {
+      "name": "Tab alcança «Confirmar pedido»",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Pedido confirmado só com teclado",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "320px: texto base de 16px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "320px: sem rolagem horizontal em Início, Cardápio e Finalização",
+      "ok": true,
+      "detail": "scrollWidth = clientWidth"
+    },
+    {
+      "name": "320px: alvos de toque com pelo menos 44×44 px",
+      "ok": true,
+      "detail": "todos ≥ 44×44"
+    },
+    {
+      "name": "375px: texto base de 16px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "375px: sem rolagem horizontal em Início, Cardápio e Finalização",
+      "ok": true,
+      "detail": "scrollWidth = clientWidth"
+    },
+    {
+      "name": "375px: alvos de toque com pelo menos 44×44 px",
+      "ok": true,
+      "detail": "todos ≥ 44×44"
+    },
+    {
+      "name": "768px: texto base de 16px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "768px: sem rolagem horizontal em Início, Cardápio e Finalização",
+      "ok": true,
+      "detail": "scrollWidth = clientWidth"
+    },
+    {
+      "name": "768px: alvos de toque com pelo menos 44×44 px",
+      "ok": true,
+      "detail": "todos ≥ 44×44"
+    },
+    {
+      "name": "1280px: texto base de 16px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "1280px: sem rolagem horizontal em Início, Cardápio e Finalização",
+      "ok": true,
+      "detail": "scrollWidth = clientWidth"
+    },
+    {
+      "name": "1280px: alvos de toque com pelo menos 44×44 px",
+      "ok": true,
+      "detail": "todos ≥ 44×44"
+    },
+    {
+      "name": "Recurso / responde HTTP 200",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "Recurso /styles.css responde HTTP 200",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "Recurso /app.js responde HTTP 200",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "Recurso /favicon.svg responde HTTP 200",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "Nenhum erro no console",
+      "ok": true,
+      "detail": "0 erros"
+    },
+    {
+      "name": "Nenhum recurso falhou ao carregar",
+      "ok": true,
+      "detail": "0 falhas"
+    }
+  ]
+}
