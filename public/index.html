@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pausa no Prato · Pedido rápido para retirada</title>
+  <meta name="description" content="Protótipo de média fidelidade de app de pedidos para retirada no balcão, feito para a disciplina de Interação Humano-Computador. Dados e pagamento simulados.">
+  <meta name="theme-color" content="#9E3A1A">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="#/inicio" aria-label="Pausa no Prato, ir para o início">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="14" fill="#9E3A1A"/>
+          <circle cx="16" cy="16" r="8.5" fill="none" stroke="#FFF8F1" stroke-width="2.5"/>
+          <path d="M16 11.5v5l3 2" fill="none" stroke="#FFF8F1" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__name">Pausa no Prato</span>
+      </a>
+      <a class="cart-link" href="#/finalizacao" id="cart-link">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.5L21 8H6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="19.5" r="1.5" fill="currentColor"/><circle cx="17" cy="19.5" r="1.5" fill="currentColor"/></svg>
+        <span class="cart-link__label">Carrinho</span>
+        <span class="cart-link__count" id="cart-count" aria-hidden="true">0</span>
+        <span class="visually-hidden" id="cart-count-sr">, 0 itens</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="conteudo" class="page" tabindex="-1">
+    <noscript>
+      <p class="notice">Este protótipo precisa de JavaScript ativado no navegador.</p>
+    </noscript>
+  </main>
+
+  <div class="cartbar" id="cartbar" hidden>
+    <a class="cartbar__link" href="#/finalizacao">
+      <span class="cartbar__info"><span id="cartbar-items">0 itens</span> · <strong id="cartbar-total">R$ 0,00</strong></span>
+      <span class="cartbar__action">Revisar pedido
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <footer class="footer">
+    <p>Protótipo acadêmico de IHC. Cardápio, preços, tempos e pagamento são fictícios e simulados.</p>
+  </footer>
+</body>
+</html>

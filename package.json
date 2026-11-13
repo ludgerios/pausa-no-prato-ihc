@@ -1,0 +1,19 @@
+{
+  "name": "pausa-no-prato-ihc",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pausa no Prato: protótipo de média fidelidade de app de pedidos para a disciplina de IHC.",
+  "scripts": {
+    "dev": "python -m http.server 8000 --directory public",
+    "test": "node scripts/test-flow.mjs",
+    "capture": "node scripts/capture.mjs",
+    "pdf": "node scripts/build-pdf.mjs",
+    "deploy": "node scripts/deploy.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.0",
+    "playwright-core": "1.56",
+    "wrangler": "^4.158.0"
+  }
+}

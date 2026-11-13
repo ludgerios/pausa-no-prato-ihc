@@ -1,0 +1,218 @@
+[
+  {
+    "uso": "Texto principal sobre fundo creme",
+    "fg": "#1F1A17",
+    "bg": "#FFF8F1",
+    "min": 4.5,
+    "ratio": 16.37,
+    "ok": true
+  },
+  {
+    "uso": "Texto principal sobre cartão branco",
+    "fg": "#1F1A17",
+    "bg": "#FFFFFF",
+    "min": 4.5,
+    "ratio": 17.24,
+    "ok": true
+  },
+  {
+    "uso": "Texto secundário sobre cartão branco",
+    "fg": "#5C534D",
+    "bg": "#FFFFFF",
+    "min": 4.5,
+    "ratio": 7.5,
+    "ok": true
+  },
+  {
+    "uso": "Texto secundário sobre fundo creme",
+    "fg": "#5C534D",
+    "bg": "#FFF8F1",
+    "min": 4.5,
+    "ratio": 7.13,
+    "ok": true
+  },
+  {
+    "uso": "Botão principal: texto branco sobre terracota",
+    "fg": "#FFFFFF",
+    "bg": "#9E3A1A",
+    "min": 4.5,
+    "ratio": 6.83,
+    "ok": true
+  },
+  {
+    "uso": "Botão principal em foco/hover",
+    "fg": "#FFFFFF",
+    "bg": "#7A2B12",
+    "min": 4.5,
+    "ratio": 9.63,
+    "ok": true
+  },
+  {
+    "uso": "Link «Remover» e destaque sobre branco",
+    "fg": "#7A2B12",
+    "bg": "#FFFFFF",
+    "min": 4.5,
+    "ratio": 9.63,
+    "ok": true
+  },
+  {
+    "uso": "Filtro ativo e barra do carrinho: branco sobre grafite",
+    "fg": "#FFFFFF",
+    "bg": "#1F1A17",
+    "min": 4.5,
+    "ratio": 17.24,
+    "ok": true
+  },
+  {
+    "uso": "Aviso de item adicionado: branco sobre verde",
+    "fg": "#FFFFFF",
+    "bg": "#1B6B45",
+    "min": 4.5,
+    "ratio": 6.49,
+    "ok": true
+  },
+  {
+    "uso": "Selo «No carrinho»: verde sobre verde-claro",
+    "fg": "#1B6B45",
+    "bg": "#E3F2EA",
+    "min": 4.5,
+    "ratio": 5.61,
+    "ok": true
+  },
+  {
+    "uso": "Mensagem de erro: vermelho sobre rosa",
+    "fg": "#B3261E",
+    "bg": "#FDECEA",
+    "min": 4.5,
+    "ratio": 5.72,
+    "ok": true
+  },
+  {
+    "uso": "Ajuda no grupo com erro: secundário sobre rosa",
+    "fg": "#5C534D",
+    "bg": "#FDECEA",
+    "min": 4.5,
+    "ratio": 6.56,
+    "ok": true
+  },
+  {
+    "uso": "Opção escolhida: texto sobre terracota-claro",
+    "fg": "#1F1A17",
+    "bg": "#F8E6DA",
+    "min": 4.5,
+    "ratio": 14.22,
+    "ok": true
+  },
+  {
+    "uso": "Opção escolhida: dica sobre terracota-claro",
+    "fg": "#5C534D",
+    "bg": "#F8E6DA",
+    "min": 4.5,
+    "ratio": 6.19,
+    "ok": true
+  },
+  {
+    "uso": "Aviso informativo: texto sobre azul-claro",
+    "fg": "#1F1A17",
+    "bg": "#EAF0FA",
+    "min": 4.5,
+    "ratio": 15.06,
+    "ok": true
+  },
+  {
+    "uso": "Etiqueta Prato",
+    "fg": "#7A2B12",
+    "bg": "#FBE3D6",
+    "min": 4.5,
+    "ratio": 7.82,
+    "ok": true
+  },
+  {
+    "uso": "Etiqueta Bebida",
+    "fg": "#1D4E89",
+    "bg": "#DDEBF7",
+    "min": 4.5,
+    "ratio": 6.91,
+    "ok": true
+  },
+  {
+    "uso": "Etiqueta Sobremesa",
+    "fg": "#6B2A6B",
+    "bg": "#F2E2F2",
+    "min": 4.5,
+    "ratio": 7.81,
+    "ok": true
+  },
+  {
+    "uso": "Contador do carrinho vazio",
+    "fg": "#1F1A17",
+    "bg": "#EFE6DE",
+    "min": 4.5,
+    "ratio": 13.99,
+    "ok": true
+  },
+  {
+    "uso": "Limite de controles (filtros, quantidade, pagamento) sobre branco",
+    "fg": "#8A7F78",
+    "bg": "#FFFFFF",
+    "min": 3,
+    "ratio": 3.9,
+    "ok": true
+  },
+  {
+    "uso": "Limite de controles sobre fundo creme",
+    "fg": "#8A7F78",
+    "bg": "#FFF8F1",
+    "min": 3,
+    "ratio": 3.7,
+    "ok": true
+  },
+  {
+    "uso": "Limite de controles sobre rosa (grupo com erro)",
+    "fg": "#8A7F78",
+    "bg": "#FDECEA",
+    "min": 3,
+    "ratio": 3.41,
+    "ok": true
+  },
+  {
+    "uso": "Borda da opção escolhida sobre branco",
+    "fg": "#9E3A1A",
+    "bg": "#FFFFFF",
+    "min": 3,
+    "ratio": 6.83,
+    "ok": true
+  },
+  {
+    "uso": "Contorno de foco sobre fundo creme",
+    "fg": "#0B57D0",
+    "bg": "#FFF8F1",
+    "min": 3,
+    "ratio": 6.07,
+    "ok": true
+  },
+  {
+    "uso": "Contorno de foco sobre cartão branco",
+    "fg": "#0B57D0",
+    "bg": "#FFFFFF",
+    "min": 3,
+    "ratio": 6.39,
+    "ok": true
+  },
+  {
+    "uso": "Borda do grupo com erro sobre fundo branco",
+    "fg": "#B3261E",
+    "bg": "#FFFFFF",
+    "min": 3,
+    "ratio": 6.54,
+    "ok": true
+  },
+  {
+    "uso": "Ícones informativos azuis sobre azul-claro",
+    "fg": "#1D4E89",
+    "bg": "#EAF0FA",
+    "min": 3,
+    "ratio": 7.33,
+    "ok": true
+  }
+]
